@@ -41,4 +41,19 @@
         <div class="rsvps"><p>You have not created any RSVPs yet.</p></div>
     <%}%>
 
+   <div>
+        <button onclick="darkMode()">Darkmode</button>
+      </div>
+      <script>
+        function darkMode() {
+          var element = document.body;
+          element.classList.toggle("dark-mode");
+        }
+      </script>
+
+    <form>
+        <td><button class="btn btn-danger" formmethod="post" formaction='/users/theme'>Change Theme</button></p></a></td>
+    </form>
+   
+
     <%- include('../partials/footer.ejs')%>

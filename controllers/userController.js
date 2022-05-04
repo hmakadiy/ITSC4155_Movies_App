@@ -1,6 +1,7 @@
 const model = require('../models/user');
 const Showtime = require('../models/showtime');
 const rsvpModel = require('../models/rsvp');
+const user = require('../models/user');
 
 exports.signup = (req, res)=>{
     return res.render('./user/signup');
@@ -100,3 +101,27 @@ exports.logout = (req, res, next)=>{
     });
    
  };
+
+
+ exports.theme = (req, res, next)=>{
+    let id = req.session.user;
+    console.log(user.isDark);
+    model.findOne({ user: id, user:req.session.user }).then(user={
+        if(user){
+        user.findByIdAndUpdate(user._id, {user:req.body.user}, {useFindAndModify: false, runValidators: true})
+            .then(user=>{
+                req.flash('success', 'Successfully updated theme');
+                res.redirect('/users/profile');
+            })
+            .catch(err=>{
+                console.log(err);
+                if(err.name === 'validationError') {
+                    req.flash('error', err.message);
+                    return res.redirect('/back');
+                }
+                next(err);
+            });
+        }
+    })
+        
+ }

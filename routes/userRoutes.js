@@ -28,4 +28,6 @@ router.get('/profile', isLoggedIn, controller.profile);
 //POST /users/logout: logout a user
 router.get('/logout', isLoggedIn, controller.logout);
 
+router.post('/theme', isLoggedIn, controller.theme);
+
 module.exports = router;

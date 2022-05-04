@@ -1,12 +1,13 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
-  background-color: #D7CEC7;
+  background-color: black;
   min-height: 400px;
   margin-top: 0px;
   margin-right: 0px;
   margin-left: 0px;
   margin-bottom: 100px;
   clear: both;
+  color:white;
 }
 
 footer {
